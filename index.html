@@ -5,53 +5,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-
-    const labels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-    ];
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
-        tension:0.35,
-      }]
-    };   
-    const DISPLAY=false;
-    const BORDER=false;
-    const config = {
-      type: 'line',
-      data,
-      options: 
-      {
-        responsive:true,
-        scales: {
-          x: {
-            grid: {
-              display:DISPLAY,
-              drawBorder: BORDER,
-            }
-          },
-          y: {
-            grid: {
-              display:DISPLAY,
-              drawBorder: BORDER,
-            }
-          },
-        }
-      }
-    };
-
-      // === include 'setup' then 'config' above ===
-
-    
+     
     var race1 = {
       name: "Gara libera inizio stagione",
       date: "1 settembre 2020",
@@ -88,10 +42,75 @@
   </div>
 
   <script>
+    const labels = [
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+    ];
+        
+    var ctx = document.getElementById("raceChart").getContext("2d");
+    var gradient = ctx.createLinearGradient(0, 0, 1200, 0);
+        gradient.addColorStop(0, '#22ddbc');   
+        gradient.addColorStop(1, '#ff22d6');
+
+    const data = {
+      labels: labels,
+      datasets: [{
+        // label: 'My First dataset',
+        borderColor: gradient,
+        data: [0,1,0,1,0,1,0,], //10, 5, 2, 20, 30, 45
+        tension:0.4,
+      }]
+    };   
+    const DISPLAY=false;
+    const BORDER=false;
+    const config = {
+      type: 'line',
+      data,
+      options: 
+      {
+        elements:{
+          point:{
+            pointBorderWidth:0,
+            pointRadius:0,
+          }
+        },
+        responsive:true,
+        scales: {
+          x: {
+            grid: {
+              display:DISPLAY,
+              drawBorder: BORDER,
+            },
+            ticks: {
+              display:DISPLAY,
+            }
+          },
+          y: {
+            grid: {
+              display:DISPLAY,
+              drawBorder: BORDER,
+            },
+            ticks: {
+              display:DISPLAY,
+            }
+          },
+        },
+        plugins:{
+          legend:{
+            display:DISPLAY,
+          }
+        }
+      }
+    };
     var myChart = new Chart(
       document.getElementById('raceChart'),
       config
     );
+        
   </script>
 
 </body>
