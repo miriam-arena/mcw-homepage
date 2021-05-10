@@ -9,7 +9,7 @@
     var race1 = {
       name: "Gara libera inizio stagione",
       date: "1 settembre 2020",
-      score: 0
+      score: 1
     };
     var race2 = {
       name: "Gara libera: nuovo circuito",
@@ -38,18 +38,11 @@
 </head>
 <body>
   <div>
-    <canvas id="raceChart"></canvas>
+    <canvas id="raceChart" style="max-height:400px"></canvas>
   </div>
 
   <script>
-    const labels = [
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-    ];
+    const labels = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17'];
         
     var ctx = document.getElementById("raceChart").getContext("2d");
     var gradient = ctx.createLinearGradient(0, 0, 1200, 0);
@@ -61,7 +54,7 @@
       datasets: [{
         // label: 'My First dataset',
         borderColor: gradient,
-        data: [0,1,0,1,0,1,0,], //10, 5, 2, 20, 30, 45
+        data: [0,0,race1.score,0,0,race2.score,0,0,race3.score,0,0,race4.score,0,0,race5.score,0,0], //10, 5, 2, 20, 30, 45
         tension:0.4,
       }]
     };   
