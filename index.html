@@ -42,7 +42,7 @@
   </div>
 
   <script>
-    const labels = ['1','2','3','4','5',race2.date,'7','8','9','10','11','12','13','14','15','16','17'];
+    const labels = ['1','2',race1.date,'4','5',race2.date,'7','8',race3.date,'10','11',race4.date,'13','14',race5.date,'16','17'];
         
     var ctx = document.getElementById("raceChart").getContext("2d");
     var gradient = ctx.createLinearGradient(0, 0, 1200, 0);
@@ -66,10 +66,10 @@
       options: 
       {
         elements:{
-          point:{
-            pointBorderWidth:0,
-            pointRadius:0,
-          }
+          // point:{
+          //   pointBorderWidth:0,
+          //   pointRadius:0,
+          // }
         },
         responsive:true,
         scales: {
