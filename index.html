@@ -4,6 +4,44 @@
   <title>Index MCW!</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+  <style>
+    body{
+      background-color: #252528;
+      
+    }
+    .labelDate{
+      color:white;
+      text-transform:uppercase;
+    }
+    .labelName{
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    #firstName{
+      color:#248878;
+    }
+    #secondName{
+      color: #48bdc0;
+    }
+    #thirdName{
+      color:#555374;
+    }
+    #fourthName{
+      color:#bd59ce;
+    }
+    #fifthName{
+      color:#f62ad5;
+    }
+    #chartDiv{
+      background-image: url('img/car-transparent-4.png');
+      background-repeat: no-repeat; 
+      background-size: auto;
+      background-position: right bottom;
+    }
+
+
+  </style>
   <script>
      
     var race1 = {
@@ -37,13 +75,14 @@
 
 </head>
 <body>
-  <div>
+  <div id="chartDiv">
     <canvas id="raceChart" style="max-height:400px"></canvas>
   </div>
 
   <script>
-    const labels = ['1','2',race1.date,'4','5',race2.date,'7','8',race3.date,'10','11',race4.date,'13','14',race5.date,'16','17'];
-        
+   
+    const labels = ['1','2',"<span class='labelDate'>"+race1.date+"</span><br><span id='firstName' class='labelName'>"+race1.name+"</span><br>",'4','5',"<span class='labelDate'>"+race2.date+"</span><br><span id='secondName' class='labelName'>"+race2.name+"</span><br>",'7','8',"<span class='labelDate'>"+race3.date+"</span><br><span id='thirdName' class='labelName'>"+race3.name+"</span><br>",'10','11',"<span class='labelDate'>"+race4.date+"</span><br><span id='fourthName' class='labelName'>"+race4.name+"</span><br>",'13','14',"<span class='labelDate'>"+race5.date+"</span><br><span id='fifthName' class='labelName'>"+race5.name+"</span><br>",'16','17'];
+    
     var ctx = document.getElementById("raceChart").getContext("2d");
     var gradient = ctx.createLinearGradient(0, 0, 1200, 0);
         gradient.addColorStop(0, '#22ddbc');   
@@ -142,8 +181,7 @@
               {
                   innerHtml += title;
               });
-              
-              
+                            
               var tableRoot = tooltipEl.querySelector('p');
               tableRoot.innerHTML = innerHtml;
 
@@ -168,6 +206,7 @@
       document.getElementById('raceChart'),
       config
     );
+    
 
     
   </script>
